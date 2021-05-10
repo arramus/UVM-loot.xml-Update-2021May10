@@ -1,0 +1,106 @@
+<UVM_Configs>
+
+<!-- Adds the old heli and blimp storage sizes for use with new ids incase they do use them again in future no conflicts hopefully Plus two additional options-->
+
+<!--Heli Size-->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='124']">
+<lootcontainer id="581" count="0" size="9,8" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+</lootcontainer>
+</insertAfter>
+
+<!--Blimp Size -->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='581']">
+<lootcontainer id="582" count="0" size="10,9" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+</lootcontainer>
+</insertAfter>
+
+<!--New Truck -->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='582']">
+<lootcontainer id="583" count="0" size="9,6" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+</lootcontainer>
+</insertAfter>
+
+<!-- Upgrade MilitaryTruck -->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='583']">
+<lootcontainer id="584" count="0" size="9,9" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+</lootcontainer>
+</insertAfter>
+
+<!-- Add new UVM Military and medical groups  -->
+
+<insertBefore xpath="/lootcontainers/lootcontainer[@id='1']" >
+    <lootgroup name="UVMMedical" count="1">
+      <item group="rareMedicine" count="1" prob=".4" />
+      <item group="medicine" count="1" prob=".3" />
+      <item group="cannedfood" count="1" prob=".1" />  
+    </lootgroup>
+
+<lootgroup name="UVMmilitary" count="1,3">
+		<item group="groupAmmoRegular" count="3,5" prob="0.2" />
+		<item group="groupAmmoAdvanced" count="2,4" prob="0.2"/>
+		<item group="groupArmorScaledTPlus" prob="0.2"/>
+		<item group="groupModAllScaled" prob="0.2"/>
+		<item group="groupWeaponsAllScaledTPlus" prob="0.2"/>
+	</lootgroup>
+</insertBefore>
+
+<!-- Add new UVM Military Loot container  -->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='584']">
+<lootcontainer id="590" count="1,3" size="9,9" sound_open="UseActions/open_shopping_basket" open_time="4" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+	<item group="UVMmilitary" prob=".4" /> 
+    <item group="automotive+tools+junk" prob=".3"   />
+	<item group="cannedfood" prob="0.1"/>
+	<item name="resourceRepairKit" count="2,3" prob="0.1"/>
+</lootcontainer>
+</insertAfter>
+<!-- Add new UVM Ambulance Loot container  -->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='590']">
+<lootcontainer id="591" count="1,3" size="9,9" sound_open="UseActions/open_shopping_basket" open_time="2" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+	<item group="UVMMedical" prob=".5" />	
+	<item group="automotive+tools+junk" />
+	<item name="medicalFirstAidKitSchematic" prob=".005"/>
+</lootcontainer>
+</insertAfter>
+<!-- Add new UVM Armoured Truck Loot container -->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='591']">
+<lootcontainer id="592" count="1,2" size="9,9" sound_open="UseActions/open_shopping_basket" open_time="4" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+	<item name="oldCash" count="50,700" prob=".45"/>
+	<item name="casinoCoin" count="10,3000" prob=".25"/>
+	<item group="rareOres" prob=".1" />
+	<item group="automotive+tools+junk" prob="0.2" />
+</lootcontainer>
+</insertAfter>
+<!-- Add new UVM Tanker Truck Loot container -->
+<insertAfter xpath="/lootcontainers/lootcontainer[@id='592']">
+<lootcontainer id="593" count="1,2" size="9,9" sound_open="UseActions/open_shopping_basket" open_time="4" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+	<item name="ammoGasCan" count="100,6000" prob=".5" />
+	<item group="automotive+tools+junk" />
+</lootcontainer>
+</insertAfter>
+
+<!-- Add schematics and items for UVM additions -->
+<insertAfter xpath="/lootcontainers/lootgroup[@name='schematicsToolsRare']/item[@group='schematicsToolsT2']">
+<item name="UVM_ImpactwrenchSchematic"/>
+</insertAfter>
+
+<insertAfter xpath="/lootcontainers/lootgroup[@name='groupRareToolsTiered']/item[@group='groupToolsT3']">
+<item name="UVM_Impactwrench" loot_prob_template="probTemplate1.0" />
+</insertAfter>
+
+<insertAfter xpath="/lootcontainers/lootgroup[@name='groupQuestToolsT3']/item[@name='meleeToolSalvageT3ImpactDriver']">
+<item name="UVM_Impactwrench" loot_prob_template="probTemplate0.5" />
+</insertAfter>
+
+<insertAfter xpath="/lootcontainers/lootgroup[@name='workingStiffsBox']/item[@group='workingStiffsSub']">
+<item name="UVM_Impactwrench" loot_prob_template="probTemplate1.0" />
+</insertAfter>
+
+<insertBefore xpath="/lootcontainers/lootgroup[@name='schematicsVehiclesRare']/item[@group='schematicsVehiclesT2']">
+<item name="UVM_vehicleAccessoriesSchematic" />
+</insertBefore>
+
+<insertBefore xpath="/lootcontainers/lootgroup[@name='4x4Parts']/item[@name='vehicle4x4TruckChassis']">
+<item name="UVM_vehicleAccessories" />
+</insertBefore>
+
+</UVM_Configs>
